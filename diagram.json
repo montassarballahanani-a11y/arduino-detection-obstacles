@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 67.8, "left": -29.4, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -99.6, "left": 61.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 3.95,
+      "left": 144,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -46.5,
+      "left": 216.7,
+      "attrs": { "distance": "10" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -45.6,
+      "left": -94.2,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "ultrasonic1:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "uno:8", "uno:10", "green", [ "v0" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v0" ] ],
+    [ "uno:9", "ultrasonic1:TRIG", "green", [ "v0" ] ],
+    [ "uno:10", "ultrasonic1:ECHO", "green", [ "v0" ] ],
+    [ "uno:3", "r1:2", "green", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.1", "green", [ "v0" ] ],
+    [ "bz1:2", "uno:6", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
